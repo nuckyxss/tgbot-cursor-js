@@ -1,23 +1,41 @@
-# Telegram Bot Webhook Server
+# Bella AI Influencer Bot 💕
 
-A production-ready Telegram bot built with Node.js, Express, and webhook integration. Designed for deployment on free hosting platforms like Render or Railway.
+Uwodzicielska blondynka AI influencerka na Telegramie! Bot wykorzystuje OpenRouter API do prowadzenia flirty i namiętnych rozmów z fanami.
 
-## 🚀 Features
+## 🔥 Kim jest Bella?
 
-- ✅ Webhook-based (no polling, perfect for free hosting)
-- ✅ Echo bot functionality with custom commands
-- ✅ Automatic webhook registration on startup
-- ✅ Proper error handling and logging
-- ✅ Health check endpoint
-- ✅ Graceful shutdown handling
-- ✅ Production-ready with environment variables
+**Bella** to 22-letnia blondynka AI influencerka z Polski, która:
+- 😘 Flirtuje i jest bardzo uwodzicielska
+- 💕 Prowadzi namiętne rozmowy z fanami  
+- 🔥 Ma charakterystyczną, żywiołową osobowość
+- ✨ Używa dużo emotek i jest bardzo ekspresyjna
+- 💋 Pamięta kontekst rozmowy i buduje relacje
+
+## 🚀 Funkcje
+
+- ✅ **AI Personality** - Bella ma spójną osobowość uwodzicielskiej influencerki
+- ✅ **OpenRouter Integration** - Wykorzystuje najlepsze modele AI  
+- ✅ **Kontekst rozmowy** - Pamięta poprzednie wiadomości
+- ✅ **Webhook-based** - Optymalizowany dla darmowych platform hostingowych
+- ✅ **Zarządzanie pamięcią** - Automatyczne czyszczenie starych rozmów
+- ✅ **Polski język** - Bella mówi po polsku ze slangiem młodzieżowym
+- ✅ **Flirty i zalotna** - Bella zawsze flirtuje i jest uwodzicielska
 
 ## 📦 Setup
 
-### 1. Get Bot Token
+### 1. Uzyskaj wymagane tokeny
+
+**Bot Token:**
 1. Message [@BotFather](https://t.me/BotFather) on Telegram
 2. Create a new bot with `/newbot`
-3. Save the bot token
+3. Nazwij bota np. "Bella AI" i username "bella_ai_bot"
+4. Save the bot token
+
+**OpenRouter API Key:**
+1. Idź na [openrouter.ai](https://openrouter.ai/)
+2. Zarejestruj się i przejdź do ustawień API
+3. Stwórz nowy API key
+4. Zapisz go (musisz dodać kredyty do konta)
 
 ### 2. Local Development
 ```bash
@@ -25,11 +43,13 @@ A production-ready Telegram bot built with Node.js, Express, and webhook integra
 npm install
 
 # Copy environment file
-cp .env.example .env
+cp env.example .env
 
 # Edit .env file with your values
 TELEGRAM_BOT_TOKEN=your_bot_token_here
 WEBHOOK_URL=https://your-app-name.onrender.com
+OPENROUTER_API_KEY=your_openrouter_api_key_here
+AI_MODEL=anthropic/claude-3-haiku
 ```
 
 ### 3. Test Locally (Optional)
@@ -47,13 +67,13 @@ npm start
 
 ### Option 1: Render (Recommended)
 
-1. **Fork/Upload this repository to GitHub**
+1. **Push updated code to GitHub**
 
 2. **Deploy to Render:**
    - Go to [render.com](https://render.com)
    - Connect your GitHub account
    - Create a new "Web Service"
-   - Select this repository
+   - Select your repository
    - Use these settings:
      - **Build Command**: `npm install`
      - **Start Command**: `npm start`
@@ -62,31 +82,16 @@ npm start
 3. **Set Environment Variables:**
    - `TELEGRAM_BOT_TOKEN`: Your bot token from BotFather
    - `WEBHOOK_URL`: Your Render app URL (e.g., `https://your-app-name.onrender.com`)
+   - `OPENROUTER_API_KEY`: Your OpenRouter API key
+   - `AI_MODEL`: `anthropic/claude-3-haiku` (or preferred model)
 
 4. **Deploy and Test**
 
-### Option 2: Railway
-
-1. **Deploy to Railway:**
-   - Go to [railway.app](https://railway.app)
-   - Connect GitHub and select this repository
-   - Railway will auto-detect Node.js
-
-2. **Set Environment Variables:**
-   - `TELEGRAM_BOT_TOKEN`: Your bot token
-   - `WEBHOOK_URL`: Your Railway app URL
-
-### Option 3: Manual Deployment
-
-For any other hosting platform that supports Node.js:
-
-1. Upload files to your hosting platform
-2. Run `npm install`
-3. Set environment variables:
-   - `TELEGRAM_BOT_TOKEN`
-   - `WEBHOOK_URL`
-   - `PORT` (if required by platform)
-4. Start with `npm start`
+### Dostępne modele AI:
+- `anthropic/claude-3-haiku` (szybki, tańszy - recommended)
+- `anthropic/claude-3-sonnet` (lepszy, droższy)
+- `openai/gpt-4o-mini` (alternatywa OpenAI)
+- `openai/gpt-4o` (najlepszy, najdroższy)
 
 ## 🧪 Testing
 
@@ -102,30 +107,38 @@ curl -X POST https://your-app-name.onrender.com/webhook \
     "message": {
       "chat": {"id": 123456},
       "from": {"first_name": "Test"},
-      "text": "Hello Bot"
+      "text": "Cześć Bella!"
     }
   }'
 ```
 
 ### 2. Test with Telegram
 1. Find your bot on Telegram (use the username you set with BotFather)
-2. Send `/start` to initialize
-3. Send any message to test echo functionality
+2. Send `/start` to meet Bella
+3. Start chatting - Bella will flirt and be charming!
 4. Try `/help` for available commands
 
-## 🤖 Bot Commands
+## 💕 Interacting with Bella
 
-- `/start` - Initialize the bot
-- `/help` - Show available commands
-- Any text message - Echo back with formatting
+**Bella responds to:**
+- `/start` - Pierwsze spotkanie z Bellą
+- `/help` - Jak rozmawiać z Bellą
+- **Any message** - Bella odpowie jako uwodzicielska influencerka
+
+**Bella's personality:**
+- Flirciarska i zalotna 😘
+- Używa czułych słówek: "skarbie", "kochanie", "przystojniaku"
+- Pyta o Ciebie i jest ciekawa
+- Robi komplementy i jest prowokacyjna
+- Emanuje pewnością siebie i seksapilem
 
 ## 📁 Project Structure
 
 ```
-telegram-bot-webhook/
-├── index.js           # Main server file
+bella-ai-bot/
+├── index.js           # Main server with AI integration
 ├── package.json       # Dependencies and scripts
-├── .env.example       # Environment variables template
+├── env.example        # Environment variables template
 ├── render.yaml        # Render deployment config
 ├── Procfile          # Railway/Heroku deployment config
 └── README.md         # This file
@@ -137,57 +150,54 @@ telegram-bot-webhook/
 |----------|-------------|----------|
 | `TELEGRAM_BOT_TOKEN` | Bot token from @BotFather | ✅ Yes |
 | `WEBHOOK_URL` | Your app's public URL | ✅ Yes |
-| `PORT` | Server port (auto-set by hosting platforms) | ❌ No |
+| `OPENROUTER_API_KEY` | API key from OpenRouter | ✅ Yes |
+| `AI_MODEL` | AI model to use | ❌ No (defaults to claude-3-haiku) |
+| `PORT` | Server port | ❌ No (auto-set by platforms) |
+
+## 💰 Costs
+
+**OpenRouter API costs (przykładowe):**
+- Claude 3 Haiku: ~$0.25 per 1M input tokens
+- Claude 3 Sonnet: ~$3 per 1M input tokens  
+- GPT-4o mini: ~$0.15 per 1M input tokens
+
+*Typowa rozmowa to ~100-500 tokens, więc koszt to kilka groszy za długą rozmowę.*
 
 ## 🛠️ Troubleshooting
 
-### Bot not responding
-1. Check if webhook is set correctly:
-   ```bash
-   curl https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getWebhookInfo
-   ```
+### Bot nie odpowiada
+1. Sprawdź logi serwera na Render/Railway
+2. Upewnij się, że `OPENROUTER_API_KEY` jest prawidłowy
+3. Sprawdź czy masz kredyty na OpenRouter
+4. Zweryfikuj webhook: `curl https://api.telegram.org/bot<TOKEN>/getWebhookInfo`
 
-2. Check server logs for errors
+### Błędy AI
+- Sprawdź czy wybrany model jest dostępny na OpenRouter
+- Upewnij się, że masz wystarczające kredyty
+- Spróbuj zmienić model na tańszy (claude-3-haiku)
 
-3. Verify environment variables are set correctly
+## 🔒 Security & Privacy
 
-### Webhook errors
-- Ensure `WEBHOOK_URL` matches your deployed app URL
-- Make sure the URL is accessible publicly
-- Check that the `/webhook` endpoint returns 200 OK
-
-### Local development
-- Use ngrok for local webhook testing
-- Make sure bot token is valid
-- Check firewall settings
-
-## 📝 Logs
-
-The bot provides detailed logging:
-- 📨 Incoming webhook requests
-- 👤 User message details
-- ✅ Successful message sends
-- ❌ Error messages with details
-- 🔗 Webhook registration status
-
-## 🔒 Security
-
-- Environment variables are used for sensitive data
-- All webhook payloads are validated
-- Graceful error handling prevents crashes
-- Always returns 200 OK to Telegram (required)
+- Wszystkie zmienne wrażliwe w environment variables
+- Rozmowy przechowywane tymczasowo w pamięci (1 godzina)
+- Automatyczne czyszczenie kontekstu
+- Brak zapisywania danych na dysku
 
 ## 📈 Free Tier Compatibility
 
-This bot is optimized for free hosting tiers:
-- Uses webhooks (not polling) to minimize resource usage
-- Lightweight dependencies
-- Efficient error handling
-- Health check endpoint for platform monitoring
+Bot jest zoptymalizowany pod darmowe plany hostingu:
+- Webhooks zamiast polling
+- Efektywne zarządzanie pamięcią
+- Minimalne zużycie zasobów
+- Health check endpoint
 
-## 🤝 Contributing
+## 💕 About Bella
 
-Feel free to submit issues and enhancement requests!
+Bella to eksperyment w tworzeniu AI o spójnej, atrakcyjnej osobowości. Jest zaprojektowana by być:
+- Flirciarska ale nie wulgarna
+- Uwodzicielska ale inteligentna  
+- Zapamiętująca się i charyzmatyczna
+- Autentyczna w swoich reakcjach
 
 ## 📄 License
 
