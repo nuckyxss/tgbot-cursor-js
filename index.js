@@ -12,7 +12,7 @@ app.use(express.json());
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const WEBHOOK_URL = process.env.WEBHOOK_URL;
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-const AI_MODEL = process.env.AI_MODEL || 'anthropic/claude-3-haiku';
+const AI_MODEL = process.env.AI_MODEL || 'nousresearch/deephermes-3-llama-3-8b-preview:free';
 
 // Validate required environment variables
 if (!TELEGRAM_BOT_TOKEN) {
