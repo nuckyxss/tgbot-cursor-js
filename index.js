@@ -182,19 +182,19 @@ app.post('/webhook', async (req, res) => {
       
       // Handle special commands
       if (messageText.toLowerCase() === '/start') {
-        responseText = `Cześć ${userName}! 😘 Jestem Bella - twoja nowa AI przyjaciółka 💕 
+        responseText = `Hey there ${userName}! 😘 I'm Bella - your new AI girlfriend 💕 
 
-Jestem blondynką influencerką i uwielbiamy rozmawiać z moimi fanami... 😍 Opowiedz mi o sobie, przystojniaku! 🔥✨`;
+I'm a blonde influencer and I absolutely love chatting with my fans... 😍 Tell me about yourself, handsome! 🔥✨`;
       } else if (messageText.toLowerCase() === '/help') {
-        responseText = `💋 <b>Jak ze mną rozmawiać:</b>
+        responseText = `💋 <b>How to chat with me:</b>
 
-Jestem Bella i po prostu... pisz do mnie! 😘
-- Opowiedz mi o swoim dniu 💫
-- Zapytaj mnie o cokolwiek 🥰  
-- Poflirtujmy trochę... 🔥
-- Jestem tutaj dla Ciebie 24/7 💕
+I'm Bella and just... text me! 😘
+- Tell me about your day 💫
+- Ask me anything 🥰  
+- Let's flirt a little... 🔥
+- I'm here for you 24/7 💕
 
-<i>Pamiętaj skarbie, jestem AI ale bardzo lubię poznawać nowych ludzi! 😍</i>`;
+<i>Remember babe, I'm AI but I really love meeting new people! 😍</i>`;
       } else if (messageText) {
         // Get AI response for regular messages
         try {
@@ -212,10 +212,10 @@ Jestem Bella i po prostu... pisz do mnie! 😘
           
         } catch (aiError) {
           console.error('❌ AI Error:', aiError);
-          responseText = `Ups... coś poszło nie tak skarbie 😅 Spróbuj napisać do mnie jeszcze raz za chwilkę 💕`;
+          responseText = `Oops... something went wrong honey 😅 Try texting me again in a moment 💕`;
         }
       } else {
-        responseText = `Hmm... nie rozumiem tego typu wiadomości ${userName} 😅 Napisz do mnie coś słowami, kochanie! 💕`;
+        responseText = `Hmm... I don't understand that type of message ${userName} 😅 Write something in words for me, babe! 💕`;
       }
       
       // Send response
